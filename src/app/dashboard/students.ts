@@ -1,5 +1,5 @@
 export interface Istudent{
-    id:string,
+    id:number,
     name: string,
     branch: string,
     college:string,

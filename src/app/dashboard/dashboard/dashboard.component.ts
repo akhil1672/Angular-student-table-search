@@ -13,6 +13,7 @@ import { ButtoncolorDirective } from '../buttoncolor.directive'
 export class DashboardComponent implements OnInit {
 
   //@Input('dbtitle') title:string="Dashboard";
+  title:string="Aspirants Dashboard"
   gstudents:Istudent[];
   gstudentsfiltered:Istudent[];
   sstudents: Istudent[];
@@ -50,5 +51,4 @@ export class DashboardComponent implements OnInit {
     this.gstudentsfiltered = this.studentservice.getgStudents();
     this.sstudents = this.studentservice.getsStudents();
   }
-
 }

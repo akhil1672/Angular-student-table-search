@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div class="container">
   <h2>{{title}}</h2>
   <hr>
@@ -26,12 +25,12 @@
       </tr>
     </thead>
     <tbody *ngIf='gstudents'>
-      <tr *ngFor='let gstudent of gstudentsfiltered'>
+      <tr *ngFor='let gstudent of gstudentsfiltered' [routerLink]="['/students',gstudent.id]">
         <td>{{gstudent.id}}</td>
-        <td>{{gstudent.name|uppercase}}</td>
+        <td><a [routerLink]="['/students',gstudent.id]">{{gstudent.name|uppercase}}</a></td>
         <td>{{gstudent.branch}}</td>
         <td>{{gstudent.college|uppercase}}</td>
-        <td>{{gstudent.date|date:'fullDate'}}</td>
+        <td>{{gstudent.date|date}}</td>
         <td><button type="button" (click)='showperct(gstudent.percentage,gstudent.name)'  class="btn btn-primary"
           appButtoncolor percent={{gstudent.percentage}}
            >{{gstudent.percentage|percentage}}</button></td>
@@ -64,12 +63,12 @@
     </tr>
   </thead>
   <tbody *ngIf='sstudents'>
-    <tr *ngFor='let sstudent of sstudents |pipesearch:name2'>
+    <tr *ngFor='let sstudent of sstudents |pipesearch:name2' [routerLink]="['/students',sstudent.id]">
       <td>{{sstudent.id}}</td>
-      <td>{{sstudent.name|uppercase}}</td>
+      <td><a [routerLink]="['/students',sstudent.id]">{{sstudent.name|uppercase}}</a></td>
       <td>{{sstudent.branch}}</td>
       <td>{{sstudent.college|uppercase}}</td>
-      <td>{{sstudent?.date|date:'fullDate'}}</td>
+      <td>{{sstudent?.date|date}}</td>
       <td>
         <button type="button" appButtoncolor percent={{sstudent.percentage}} 
         (click)='showperct(sstudent.percentage,sstudent.name)' class="btn btn-primary">{{sstudent?.percentage|percentage}}</button>
