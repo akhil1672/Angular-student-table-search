@@ -1,0 +1,21 @@
+<div class='jumbotron'>
+  <p>Albums</p>
+  <div class='container'>
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="false">
+        No of albums
+      </button>
+      <div #input class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" (click)='down.changelimit()'>10</a>
+        <a class="dropdown-item" (click)='down.changelimit()'>50</a>
+        <a class="dropdown-item" (click)='down.changelimit()'>100</a>
+      </div>
+    </div>
+    <div *ngFor="let album of albums">
+      <div class="col">
+       <img [src]="album.thumbnailUrl" href="album.url"/>
+      </div>
+    </div>
+  </div>
+</div>

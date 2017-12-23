@@ -13,27 +13,32 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { StudentdetailsComponent } from './dashboard/studentdetails/studentdetails.component';
 import { UserModule } from './user/user.module';
+import { AlbumComponent } from './album/album.component';
+import {HttpClientModule} from '@angular/common/http'
+import { AlbumService } from './common/album.service';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent,WelcomeComponent,PagenotfoundComponent
+    AppComponent, NavbarComponent,WelcomeComponent,PagenotfoundComponent, AlbumComponent
   ],
   imports: [
     BrowserModule,
     DashboardModule,
     UserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     ToastrModule.forRoot(),
     RouterModule.forRoot([
       { path:'welcome', component:WelcomeComponent},
       { path:'students', component: DashboardComponent },
       { path:'pagenotfound',component:PagenotfoundComponent },
+      {path:'albums',component:AlbumComponent},
       { path: 'user', loadChildren:'./user/user.module#UserModule'},
       { path:'', redirectTo:'welcome',pathMatch:'full' },
       { path: '**', redirectTo:'pagenotfound', pathMatch: 'full'},
     ])
   ],
-  providers: [StudentService],
+  providers: [StudentService,AlbumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
